@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 
-const Dropdwon = ({ options }) => {
+const Dropdwon = ({ options, onRegionChange }) => {
   const [selected, setSelected] = useState('Fliter by Region')
   const renderedOption = options.map((option) => {
     return (
       <li key={option.region}>
-        <a className="dropdown-item" onClick={() => setSelected(option.region)}>
+        <a
+          className="dropdown-item"
+          onClick={() => {
+            setSelected(option.region)
+            onRegionChange(option.region)
+          }}
+        >
           {option.region}
         </a>
       </li>

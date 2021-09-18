@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Countries = ({ countries, term }) => {
+const Countries = ({ countries, term, region }) => {
   console.log(countries)
   const Rendered = countries.map((country) => {
     let CountryName = country.name
@@ -23,17 +23,35 @@ const Countries = ({ countries, term }) => {
         return null
       }
     } else {
-      return (
-        <div className="card" key={country.alpha3Code}>
-          <img src={country.flag} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h4 className="card-title">{country.name}</h4>
-            <p>{`Population: ${country.population}`}</p>
-            <p>{`Region: ${country.region}`}</p>
-            <p>{`Capital: ${country.capital} `}</p>
+      if (region === 'All Countries') {
+        return (
+          <div className="card" key={country.alpha3Code}>
+            <img src={country.flag} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h4 className="card-title">{country.name}</h4>
+              <p>{`Population: ${country.population}`}</p>
+              <p>{`Region: ${country.region}`}</p>
+              <p>{`Capital: ${country.capital} `}</p>
+            </div>
           </div>
-        </div>
-      )
+        )
+      } else {
+        if (region === country.region) {
+          return (
+            <div className="card" key={country.alpha3Code}>
+              <img src={country.flag} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h4 className="card-title">{country.name}</h4>
+                <p>{`Population: ${country.population}`}</p>
+                <p>{`Region: ${country.region}`}</p>
+                <p>{`Capital: ${country.capital} `}</p>
+              </div>
+            </div>
+          )
+        } else {
+          return null
+        }
+      }
     }
   })
   return (

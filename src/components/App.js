@@ -7,6 +7,7 @@ import axios from 'axios'
 const App = () => {
   const [Results, setResults] = useState([])
   const [termChange, setTermChange] = useState('')
+  const [selectedRegion, setSelectedRegion] = useState('All Countries')
   useEffect(() => {
     const fetch = async () => {
       const { data } = await axios.get('https://restcountries.eu/rest/v2/all')
@@ -21,11 +22,18 @@ const App = () => {
     str = str.toLowerCase()
     setTermChange(str)
   }
+  const onRegionChange = (region) => {
+    setSelectedRegion(region)
+  }
   return (
     <div>
       <Header />
-      <Search onTermChange={onTermChange} />
-      <Countries countries={Results} term={termChange} />
+      <Search onTermChange={onTermChange} onRegionChange={onRegionChange} />
+      <Countries
+        countries={Results}
+        term={termChange}
+        region={selectedRegion}
+      />
     </div>
   )
 }

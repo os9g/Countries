@@ -14,13 +14,13 @@ const options = [
     region: 'Asia',
   },
   {
-    region: 'Europ',
+    region: 'Europe',
   },
   {
-    region: 'Ocania',
+    region: 'Oceania',
   },
 ]
-const Search = ({ onTermChange }) => {
+const Search = ({ onTermChange, onRegionChange }) => {
   const [term, setTerm] = useState('')
 
   return (
@@ -43,7 +43,7 @@ const Search = ({ onTermChange }) => {
             aria-describedby="basic-addon1"
           />
         </div>
-        <Dropdwon options={options} />
+        <Dropdwon options={options} onRegionChange={onRegionChange} />
       </div>
     </div>
   )
