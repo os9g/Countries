@@ -23,7 +23,7 @@ const Header = () => {
     <div className="header">
       <div className="card">
         <div className="container flex">
-          <h1>Where in the word</h1>
+          <h1>Where In The World</h1>
           <div className="theme">
             <div class="form-check form-switch flex">
               <i class={`${darkTheme ? 'far' : 'fas'} fa-moon`}></i>
