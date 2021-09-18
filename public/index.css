@@ -19,6 +19,7 @@
 }
 body {
   font-family: "Nunito Sans", sans-serif;
+  color: var(--font-color);
   background-color: var(--background-color);
 }
 img {
@@ -40,12 +41,40 @@ button {
   height: 100%;
 }
 /* Header */
+.header .flex:not(.header .theme .flex) {
+  justify-content: space-between;
+}
 .header .card {
   padding: 20px 0;
 }
 .header h1 {
+  color: var(--font-color);
   font-size: 25px;
   font-weight: bolder;
+}
+.header .form-check {
+  padding: 0;
+  margin: 0;
+}
+.header .form-check input {
+  width: 40px;
+  height: 20px;
+}
+.theme {
+  width: 150px;
+}
+.header .theme .flex {
+  justify-content: space-evenly;
+}
+.theme input {
+  justify-self: center;
+}
+
+.theme i {
+  font-size: 25px;
+  margin-top: 0.25em;
+  margin-right: 20px;
+  justify-self: center;
 }
 
 /* Search */
@@ -54,7 +83,26 @@ button {
 }
 
 .search input {
+  height: 41.1px;
+  font-weight: 900;
   border-left: 0px;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+}
+.search input::placeholder {
+  color: var(--font-color);
+  opacity: 0.6;
+}
+.form-control {
+  border: 0;
+}
+.input-group-text {
+  border: 0;
+}
+.search input:focus {
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--font-color);
 }
 .input-group {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -69,12 +117,26 @@ button {
 .input-group {
   width: 400px;
 }
+.input-group-text i {
+  color: var(--font-color);
+}
 /* dropdown */
 .dropdown .btn {
+  width: 150px;
   text-align: left;
   background-color: var(--primary-color) !important;
   color: var(--font-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.dropdown-toggle::after {
+  float: right;
+  margin: 9% 0;
+}
+.dropdown-menu {
+  background-color: var(--background-color);
+}
+.dropdown-menu a {
+  color: var(--font-color);
 }
 /* Countries */
 .card-img-top {
@@ -82,6 +144,7 @@ button {
   width: 100%;
 }
 .countries .card {
+  color: var(--font-colorx);
   height: 100%;
   cursor: pointer;
   transition: transform 0.2s ease-in;

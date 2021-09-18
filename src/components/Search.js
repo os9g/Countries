@@ -37,7 +37,7 @@ const Search = ({ onTermChange, onRegionChange }) => {
               setTerm(e.target.value)
             }}
             type="text"
-            className="form-control"
+            className="form-control shadow-none"
             placeholder="Search for a country"
             aria-label="Username"
             aria-describedby="basic-addon1"
