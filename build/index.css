@@ -59,7 +59,6 @@ button {
   color: var(--font-color);
   font-size: 25px;
   font-weight: bolder;
-  margin-bottom: 0;
 }
 .header .form-check {
   padding: 0;
