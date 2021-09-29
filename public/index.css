@@ -259,3 +259,9 @@ button {
     grid-template-columns: 1fr;
   }
 }
+@supports (overflow: -webkit-marquee) and (justify-content: inherit) {
+  .card-img-top {
+    height: unset;
+    width: unset;
+  }
+}
