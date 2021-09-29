@@ -4,6 +4,10 @@
   --background-color: rgb(253, 253, 253);
   --font-color: rgb(0, 0, 0);
 }
+.card {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 .clear {
   clear: both;
   height: fit-content;
@@ -155,9 +159,7 @@ button {
   cursor: pointer;
   transition: transform 0.2s ease-in;
 }
-.countries .card:hover {
-  transform: translateY(-10px);
-}
+
 .countries .grid {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
