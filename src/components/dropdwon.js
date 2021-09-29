@@ -18,7 +18,7 @@ const Dropdwon = ({ options, onRegionChange }) => {
     )
   })
   return (
-    <div className="dropdown">
+    <div className="dropdown felx">
       <button
         className="btn dropdown-toggle"
         type="button"

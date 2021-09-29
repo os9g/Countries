@@ -1,14 +1,24 @@
 import React from 'react'
 
-const Countries = ({ countries, term, region }) => {
+const Countries = ({ countries, term, region, onCountrySelect }) => {
+  const numberWithSpaces = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+  }
   let Rendered = countries.map((country) => {
     let CountryName = country.name
     CountryName = CountryName.replace(/\s+/g, '')
     CountryName = CountryName.toLowerCase()
     if (term) {
+      if (country.name === 'Israel') {
+        return null
+      }
       if (CountryName.includes(term, 0)) {
         return (
-          <div className="card" key={country.alpha3Code}>
+          <div
+            className="card"
+            key={country.alpha3Code}
+            onClick={() => onCountrySelect(country)}
+          >
             <img src={country.flag} className="card-img-top" alt="..." />
             <div className="card-body">
               <h4 className="card-title">{country.name}</h4>
@@ -23,12 +33,19 @@ const Countries = ({ countries, term, region }) => {
       }
     } else {
       if (region === 'All Countries') {
+        if (country.name === 'Israel') {
+          return null
+        }
         return (
-          <div className="card" key={country.alpha3Code}>
+          <div
+            className="card"
+            key={country.alpha3Code}
+            onClick={() => onCountrySelect(country)}
+          >
             <img src={country.flag} className="card-img-top" alt="..." />
             <div className="card-body">
               <h4 className="card-title">{country.name}</h4>
-              <p>{`Population: ${country.population}`}</p>
+              <p>{`Population: ${numberWithSpaces(country.population)}`}</p>
               <p>{`Region: ${country.region}`}</p>
               <p>{`Capital: ${country.capital} `}</p>
             </div>
@@ -37,7 +54,11 @@ const Countries = ({ countries, term, region }) => {
       } else {
         if (region === country.region) {
           return (
-            <div className="card" key={country.alpha3Code}>
+            <div
+              className="card"
+              key={country.alpha3Code}
+              onClick={() => onCountrySelect(country)}
+            >
               <img src={country.flag} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h4 className="card-title">{country.name}</h4>
